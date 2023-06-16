@@ -1,23 +1,28 @@
 import { useState } from 'react'
 
+import { Header, SwitchTheme } from '@/components'
+
 const App = (): JSX.Element => {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-gray-700 text-white">
-      <h1>Vite + React</h1>
+    <div className="container mx-auto h-screen">
+      <Header right={<SwitchTheme />} />
+      <div className="grid h-full place-content-center gap-4">
+        <h1>Vite + React</h1>
 
-      <button
-        className="rounded bg-green-500 px-4 py-2 font-bold text-white hover:bg-green-700"
-        onClick={() => {
-          setCount((count) => count + 1)
-        }}
-      >
-        count is {count}
-      </button>
-      <p>
-        Edit <code>src/App.tsx</code> and save to test HMR
-      </p>
+        <button
+          className="btn-primary btn"
+          onClick={() => {
+            setCount((count) => count + 1)
+          }}
+        >
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.tsx</code> and save to test HMR
+        </p>
+      </div>
     </div>
   )
 }
