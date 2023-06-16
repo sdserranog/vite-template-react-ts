@@ -26,6 +26,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", ".eslintrc.cjs", "vite.config.ts"],
+  "include": ["src", ".eslintrc.cjs", "vite.config.ts", "./vitest/setup.ts"],
+  "types": ["vite/client", "vitest/globals", "@testing-library/jest-dom"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
