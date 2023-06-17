@@ -22,6 +22,8 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'sort-keys-fix', 'functional'],
   rules: {
+    '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+    '@typescript-eslint/strict-boolean-expressions': 'off',
     'functional/immutable-data': [
       'error',
       {
