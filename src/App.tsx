@@ -6,7 +6,7 @@ const App = (): JSX.Element => {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="container mx-auto h-screen">
+    <div className="container mx-auto flex h-screen flex-col">
       <Header right={<SwitchTheme />} />
       <div className="grid h-full place-content-center gap-4">
         <h1>Vite + React</h1>
