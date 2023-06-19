@@ -7,10 +7,11 @@
     "skipLibCheck": true,
 
     // Alias
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["*"],
-      "@api/*": ["api/*"]
+      "@vitest/*": [".vitest/*"],
+      "@/*": ["src/*"],
+      "@api/*": ["src/api/*"]
     },
 
     /* Bundler mode */

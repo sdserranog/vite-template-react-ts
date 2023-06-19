@@ -1,13 +1,18 @@
-import { describe, expect, test } from 'vitest'
+import { describe, expect, test } from 'vitest';
 
-import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { MockQueryProvider } from '@vitest/mock/MockQueryProvider';
 
-import App from './App'
+import App from './App';
 
 describe('<App />', () => {
   test('App mounts properly', () => {
-    const wrapper = render(<App />)
+    const wrapper = render(
+      <MockQueryProvider>
+        <App />
+      </MockQueryProvider>
+    )
     expect(wrapper).toBeTruthy()
 
     // Get by h1
@@ -20,7 +25,11 @@ describe('<App />', () => {
   })
 
   test('Click button', async () => {
-    render(<App />)
+    render(
+      <MockQueryProvider>
+        <App />
+      </MockQueryProvider>
+    )
     const user = userEvent.setup()
 
     // Get button using getByRole with the text content

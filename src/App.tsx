@@ -1,10 +1,6 @@
-import { useState } from 'react'
-import './App.css';
-
 import { useState } from 'react';
 
-import { Header, SwitchTheme } from '@/components'
-
+import { Header, SwitchTheme } from '@/components';
 import { useGetBooks } from '@api/books';
 
 const App = (): JSX.Element => {
