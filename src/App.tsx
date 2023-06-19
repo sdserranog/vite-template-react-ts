@@ -1,7 +1,6 @@
-import './App.css';
-
 import { useState } from 'react';
 
+import { Header, SwitchTheme } from '@/components';
 import { useGetBooks } from '@api/books';
 
 const App = (): JSX.Element => {
@@ -10,10 +9,13 @@ const App = (): JSX.Element => {
   const { data, isLoading } = useGetBooks()
 
   return (
-    <>
-      <h1>Vite + React</h1>
-      <div className="card">
+    <div className="container mx-auto flex h-screen flex-col">
+      <Header right={<SwitchTheme />} />
+      <div className="grid h-full place-content-center gap-4">
+        <h1>Vite + React</h1>
+
         <button
+          className="btn-primary btn"
           onClick={() => {
             setCount((count) => count + 1)
           }}
@@ -32,7 +34,7 @@ const App = (): JSX.Element => {
           </ul>
         )}
       </div>
-    </>
+    </div>
   )
 }
 App.displayName = 'App'
