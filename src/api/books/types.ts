@@ -9,3 +9,5 @@ export type Book = {
   published: number
   publisher: string
 }
+
+export type AddBook = Omit<Book, 'id'>

@@ -1,12 +1,28 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
-import { Header, SwitchTheme } from '@/components';
-import { useGetBooks } from '@api/books';
+import { Header, SwitchTheme } from '@/components'
+import { useAddBook, useGetBooks } from '@api/books'
 
 const App = (): JSX.Element => {
   const [count, setCount] = useState(0)
 
   const { data, isLoading } = useGetBooks()
+  const { mutate } = useAddBook()
+
+  const handleAddBook = (): void => {
+    mutate({
+      author: 'J.R.R. Tolkien',
+      description:
+        'The Lord of the Rings is an epic high-fantasy novel written by English author and scholar J. R. R. Tolkien.',
+      genre: 'Fantasy',
+      image:
+        'https://images-na.ssl-images-amazon.com/images/I/51UoqRAxwEL._SX331_BO1,204,203,200_.jpg',
+      isbn: '9780261103252',
+      published: 1954,
+      publisher: 'George Allen & Unwin',
+      title: 'The Lord of the Rings',
+    })
+  }
 
   return (
     <div className="container mx-auto flex h-screen flex-col">
@@ -25,14 +41,21 @@ const App = (): JSX.Element => {
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
-        {isLoading && <p>Loading...</p>}
-        {!isLoading && data && (
-          <ul>
-            {data.map((post) => (
-              <li key={post.id}>{post.title}</li>
-            ))}
-          </ul>
-        )}
+        <section id="books" className=" flex flex-col">
+          <h2 className="my-4 text-2xl text-white">Books</h2>
+          <button className="btn-secondary btn" onClick={handleAddBook}>
+            Add Book
+          </button>
+
+          {isLoading && <p>Loading...</p>}
+          {!isLoading && data && (
+            <ul>
+              {data.map((post) => (
+                <li key={post.id}>{post.title}</li>
+              ))}
+            </ul>
+          )}
+        </section>
       </div>
     </div>
   )
