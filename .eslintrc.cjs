@@ -12,6 +12,7 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:@tanstack/eslint-plugin-query/recommended',
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
@@ -20,7 +21,13 @@ module.exports = {
     project: './tsconfig.json',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'sort-keys-fix', 'functional'],
+  plugins: [
+    'react',
+    '@typescript-eslint',
+    'sort-keys-fix',
+    'functional',
+    '@tanstack/query',
+  ],
   rules: {
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     '@typescript-eslint/strict-boolean-expressions': 'off',

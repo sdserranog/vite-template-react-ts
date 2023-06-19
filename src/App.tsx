@@ -1,9 +1,16 @@
 import { useState } from 'react'
+import './App.css';
+
+import { useState } from 'react';
 
 import { Header, SwitchTheme } from '@/components'
 
+import { useGetBooks } from '@api/books';
+
 const App = (): JSX.Element => {
   const [count, setCount] = useState(0)
+
+  const { data, isLoading } = useGetBooks()
 
   return (
     <div className="container mx-auto flex h-screen flex-col">
@@ -22,6 +29,14 @@ const App = (): JSX.Element => {
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
+        {isLoading && <p>Loading...</p>}
+        {!isLoading && data && (
+          <ul>
+            {data.map((post) => (
+              <li key={post.id}>{post.title}</li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   )
