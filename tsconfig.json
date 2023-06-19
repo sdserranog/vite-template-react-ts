@@ -9,7 +9,8 @@
     // Alias
     "baseUrl": "./src",
     "paths": {
-      "@/*": ["*"]
+      "@/*": ["*"],
+      "@api/*": ["api/*"]
     },
 
     /* Bundler mode */
