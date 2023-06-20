@@ -6,7 +6,7 @@ import { useAddBook, useGetBooks } from '@api/books'
 const App = (): JSX.Element => {
   const [count, setCount] = useState(0)
 
-  const { data, isLoading } = useGetBooks()
+  const { data, isLoading, isError } = useGetBooks()
   const { mutate } = useAddBook()
 
   const handleAddBook = (): void => {
@@ -48,6 +48,7 @@ const App = (): JSX.Element => {
           </button>
 
           {isLoading && <p>Loading...</p>}
+          {isError && <p>Error</p>}
           {!isLoading && data && (
             <ul>
               {data.map((post) => (

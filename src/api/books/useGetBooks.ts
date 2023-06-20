@@ -1,4 +1,6 @@
 import type { UseQueryResult } from '@tanstack/react-query'
+import { toast } from 'sonner'
+
 import { client } from '@api/api'
 import { useQuery } from '@tanstack/react-query'
 
@@ -15,6 +17,9 @@ const getBooks = async (): Promise<Book[]> => {
 
 export const useGetBooks = (): UseQueryResult<Book[]> => {
   return useQuery({
+    onError: () => {
+      toast.error('Error fetching books')
+    },
     queryFn: getBooks,
     queryKey: ['books'],
   })
